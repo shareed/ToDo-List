@@ -22,35 +22,48 @@ saveListButton.addEventListener("click", saveList);
 
 function newToDoItem(itemText, completed) {
     var toDoItem = document.createElement("li");
-
     // creates a text node — a special container for text that you want to
     // put inside a HTML element using JavaScript — and fills it with the
     // contents of the itemText variable that is passed into the function.
     var toDoText = document.createTextNode(itemText);
     toDoItem.appendChild(toDoText);
-
-
-
     // checks if the value for the completed variable that was passed to 
     // newToDoItem is true. If it is, then it will add the class completed 
-    // to the li element, which will change how it looks on the page. In 
-    // style.css, there are special styling rules for li tags with the 
-    // completed class in style.css — check them out, and change them if 
-    // you like!
-
-
+    // to the li element, which will change how it looks on the page.
     if (completed) {
         toDoItem.classList.add("completed");
     }
-
     toDoList.appendChild(toDoItem);
+    // attaches an event listener for a double-click to the toDoItem, and tells 
+    // it to call a function named toggleToDoItemState in response.
     toDoItem.addEventListener("dblclick", toggleToDoItemState);
 }
 
+
+//get the text from the box and pass it to the newToDoItem function
 function addToDoItem() {
     var itemText = toDoEntryBox.value;
     newToDoItem(itemText, false);
+    // Since a new to-do item is never complete, 
+    // you can always pass false to the completed 
+    // parameter of the newToDoItem function.
 }
+
+
+//To identify the item that was clicked, you’ll need
+// to use a new JavaScript keyword: this.
+function toggleToDoItemState() {
+    if (this.classList.contains("completed")) {
+        this.classList.remove("completed");
+    } else {
+        this.classList.add("completed");
+    }
+}
+
+
+
+
+
 
 function clearCompleted() {
     alert("Clear Completed button clicked!");
