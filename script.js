@@ -63,14 +63,29 @@ function toggleToDoItemState() {
 
 
 
-
+// select the children of toDoList (the items inside it) 
+// that have the completed class. Then loop over the 
+// selected items to remove them one by one.
 
 function clearCompleted() {
-    alert("Clear Completed button clicked!");
+    var completedItems = toDoList.getElementsByClassName("completed");
+
+    while (completedItems.length > 0) {
+        completedItems.item(0).remove();
+        // You can see that the code always removes the item at list position 0, 
+        // the first item on the list. You need to use 0 to do this, because 
+        // JavaScript starts counting at 0 and not 1! You remove this item so 
+        // that every time the loop runs, it removes the first item, so the list 
+        // gets shorter and shorter. In this way, no matter how many completed 
+        // items are on the list, the loop will eventually remove them all.
+    }
 }
 
 function emptyList() {
-    alert("Empty List button clicked!");
+    var toDoItems = toDoList.children;
+    while (toDoItems.length > 0) {
+        toDoItems.item(0).remove();
+    }
 
 }
 
