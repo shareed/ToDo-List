@@ -1,5 +1,6 @@
 html {
     font-size: 62.5%;
+    color: #FFFFFF;
 }
 
 
@@ -9,7 +10,7 @@ body {
 
 .container {
     margin-top: 5rem;
-    background-color: #fff;
+    background-color: #000000;
     border-radius: 1.5rem;
     margin-left: auto;
     margin-right: auto;
@@ -17,14 +18,16 @@ body {
     font-weight: bolder;
 }
 
-.container h2 {
+.container h1 {
+    color: #FFFFFF;
     margin: 0;
 }
 
 .container p {
-    font-style: italic;
-    color: #000000;
-    margin: .5rem 0;
+    font-variant: small-caps;
+    color: #FFFFFF;
+    font-size: 2rem;
+    margin: 1rem 0;
 }
 
 .container ol {
@@ -60,7 +63,7 @@ body {
     color: #fff;
     text-align: center;
     display: inline-block;
-    font-size: small;
+    font-size: 2rem;
 }
 
 .container .button:hover {
